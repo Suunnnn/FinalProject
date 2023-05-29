@@ -234,13 +234,19 @@
         </div>
         <div class="headtableContainer">
           <div class="headbutton">
-            <button class="headtabledate" @click="opendateinput">
+            <div class="headinputdate">
+            <!-- <button class="headtabledate" @click="opendateinput">
               <font-awesome-icon
                 icon="fa-regular fa-calendar-days"
                 style="font-size: 25px"
               />
               <div class="fontbutton">DATE</div>
-            </button>
+            </button> -->
+            <form action="/action_page.php">
+                    <input type="date" id="selectdate" name="selectdate" />
+                    <!-- <input type="submit"> -->
+                  </form>
+                  </div>
           </div>
           <div class="tableContainer">
             <table style="width: 100%" class="bodertable">
@@ -798,5 +804,10 @@ td {
   align-items: center;
   margin-left: 40px;
   margin-top: 20px;
+}
+.headinputdate{
+  margin-left: 90px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 </style>

@@ -7,23 +7,27 @@
             <div class="headderpopup">
               <div class="text1">
                 <div class="workcode">รหัสชิ้นงาน</div>
-                <div class="textworkcode">472/2022</div>
+                <div class="textworkcode">{{ edittable.workCode }}</div>
               </div>
               <div class="text2">
                 <div class="workcode">เลขที่อ้างอิง</div>
-                <div class="textworkcode">D4-191894</div>
+                <div class="textworkcode">{{ edittable.referenceId }}</div>
               </div>
               <div class="text3">
                 <div class="workcode">วันที่รับ</div>
-                <div class="textworkcode">31/8/65</div>
+                <div class="textworkcode">
+                  {{ edittable.dateReceipt.split("T")[0] }}
+                </div>
               </div>
               <div class="text4">
                 <div class="workcode">ลูกค้า</div>
-                <div class="textworkcode">CKD</div>
+                <div class="textworkcode">{{ edittable.customer }}</div>
               </div>
               <div class="text5">
                 <div class="workcode">วันกำหนดส่ง</div>
-                <div class="textworkcode">14 ก.ย 65</div>
+                <div class="textworkcode">
+                  {{ edittable.deadline.split("T")[0] }}
+                </div>
               </div>
             </div>
             <div class="twoheadderpopup">
@@ -35,7 +39,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].condition"
+                      v-model="edittable.condition"
                       disabled
                     />
                   </div>
@@ -47,7 +51,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].mat"
+                      v-model="edittable.mat"
                       disabled
                     />
                   </div>
@@ -59,7 +63,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].platingtype"
+                      v-model="edittable.platingType"
                       disabled
                     />
                   </div>
@@ -71,7 +75,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].otherprocesses"
+                      v-model="edittable.otherPro"
                       disabled
                     />
                   </div>
@@ -85,7 +89,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].price"
+                      v-model="edittable.price"
                       disabled
                     />
                   </div>
@@ -97,7 +101,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].amountbill"
+                      v-model="edittable.amountBill"
                       disabled
                     />
                   </div>
@@ -109,7 +113,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].balance"
+                      v-model="edittable.balance"
                       disabled
                     />
                   </div>
@@ -121,7 +125,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].stock"
+                      v-model="edittable.invenUpdate"
                       disabled
                     />
                   </div>
@@ -135,7 +139,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].time"
+                      v-model="edittable.workShift"
                       disabled
                     />
                   </div>
@@ -147,7 +151,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].jig"
+                      v-model="edittable.jig"
                       disabled
                     />
                   </div>
@@ -159,7 +163,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].Chub"
+                      v-model="edittable.chub"
                       disabled
                     />
                   </div>
@@ -171,7 +175,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].productionorder"
+                      v-model="edittable.productOrder"
                       disabled
                     />
                   </div>
@@ -189,23 +193,58 @@
             <div class="headderpopup">
               <div class="text1">
                 <div class="workcode">รหัสชิ้นงาน</div>
-                <div class="textworkcode">472/2022</div>
+                <div class="textworkcode">
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="edittable.workCode"
+                  />
+                </div>
               </div>
               <div class="text2">
                 <div class="workcode">เลขที่อ้างอิง</div>
-                <div class="textworkcode">D4-191894</div>
+                <div class="textworkcode">
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="edittable.referenceId"
+                  />
+                </div>
               </div>
               <div class="text3">
                 <div class="workcode">วันที่รับ</div>
-                <div class="textworkcode">31/8/65</div>
+                <div class="textworkcode">
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="edittable.dateReceipt"
+                  />
+                </div>
               </div>
               <div class="text4">
                 <div class="workcode">ลูกค้า</div>
-                <div class="textworkcode">CKD</div>
+                <div class="textworkcode">
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="edittable.customer"
+                  />
+                </div>
               </div>
               <div class="text5">
                 <div class="workcode">วันกำหนดส่ง</div>
-                <div class="textworkcode">14 ก.ย 65</div>
+                <div class="textworkcode">
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="edittable.deadline"
+                  />
+                </div>
               </div>
             </div>
             <div class="twoheadderpopup">
@@ -217,7 +256,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="editdetails[0].condition"
+                      v-model="edittable.condition"
                     />
                   </div>
                 </div>
@@ -228,7 +267,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].mat"
+                      v-model="edittable.mat"
                     />
                   </div>
                 </div>
@@ -239,7 +278,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].platingtype"
+                      v-model="edittable.platingType"
                     />
                   </div>
                 </div>
@@ -250,7 +289,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].otherprocesses"
+                      v-model="edittable.otherPro"
                     />
                   </div>
                 </div>
@@ -263,7 +302,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].price"
+                      v-model="edittable.price"
                     />
                   </div>
                 </div>
@@ -274,7 +313,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].amountbill"
+                      v-model="edittable.amountBill"
                     />
                   </div>
                 </div>
@@ -285,7 +324,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].balance"
+                      v-model="edittable.balance"
                     />
                   </div>
                 </div>
@@ -296,7 +335,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].stock"
+                      v-model="edittable.invenUpdate"
                     />
                   </div>
                 </div>
@@ -309,7 +348,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].time"
+                      v-model="edittable.workShift"
                     />
                   </div>
                 </div>
@@ -320,7 +359,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].jig"
+                      v-model="edittable.jig"
                     />
                   </div>
                 </div>
@@ -331,7 +370,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].Chub"
+                      v-model="edittable.chub"
                     />
                   </div>
                 </div>
@@ -342,10 +381,17 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].productionorder"
+                      v-model="edittable.productOrder"
                     />
                   </div>
                 </div>
+              </div>
+              <div class="productpage">
+                <div class="productpagetext">วันกำหนดผลิต</div>
+                <form action="/action_page.php">
+                  <input type="date" id="selectdate" name="selectdate" />
+                  <!-- <input type="submit"> -->
+                </form>
               </div>
             </div>
             <div class="singlebutton">
@@ -361,31 +407,56 @@
               <div class="text1">
                 <div class="workcode">รหัสชิ้นงาน</div>
                 <div class="textworkcode">
-                  <input type="text" placeholder="" class="newplaceholder" />
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="addtable.workCode"
+                  />
                 </div>
               </div>
               <div class="text2">
                 <div class="workcode">เลขที่อ้างอิง</div>
                 <div class="textworkcode">
-                  <input type="text" placeholder="" class="newplaceholder" />
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="addtable.referenceId"
+                  />
                 </div>
               </div>
               <div class="text3">
                 <div class="workcode">วันที่รับ</div>
                 <div class="textworkcode">
-                  <input type="text" placeholder="" class="newplaceholder" />
+                  <input
+                    type="text"
+                    placeholder="yyyy-mm-dd"
+                    class="newplaceholder"
+                    v-model="addtable.dateReceipt"
+                  />
                 </div>
               </div>
               <div class="text4">
                 <div class="workcode">ลูกค้า</div>
                 <div class="textworkcode">
-                  <input type="text" placeholder="" class="newplaceholder" />
+                  <input
+                    type="text"
+                    placeholder=""
+                    class="newplaceholder"
+                    v-model="addtable.customer"
+                  />
                 </div>
               </div>
               <div class="text5">
                 <div class="workcode">วันกำหนดส่ง</div>
                 <div class="textworkcode">
-                  <input type="text" placeholder="" class="newplaceholder" />
+                  <input
+                    type="text"
+                    placeholder="yyyy-mm-dd"
+                    class="newplaceholder"
+                    v-model="addtable.deadline"
+                  />
                 </div>
               </div>
             </div>
@@ -398,7 +469,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].condition"
+                      v-model="addtable.condition"
                     />
                   </div>
                 </div>
@@ -409,7 +480,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].mat"
+                      v-model="addtable.mat"
                     />
                   </div>
                 </div>
@@ -420,7 +491,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].platingtype"
+                      v-model="addtable.platingType"
                     />
                   </div>
                 </div>
@@ -431,7 +502,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].otherprocesses"
+                      v-model="addtable.otherPro"
                     />
                   </div>
                 </div>
@@ -442,9 +513,9 @@
                   <div class="textworkcode">
                     <input
                       type="text"
-                      placeholder=""
+                      placeholder="บาท"
                       class="placeholder"
-                      v-model="newdetails[0].price"
+                      v-model="addtable.price"
                     />
                   </div>
                 </div>
@@ -455,7 +526,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].amountbill"
+                      v-model="addtable.amountBill"
                     />
                   </div>
                 </div>
@@ -466,7 +537,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].balance"
+                      v-model="addtable.balance"
                     />
                   </div>
                 </div>
@@ -477,7 +548,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].stock"
+                      v-model="addtable.invenUpdate"
                     />
                   </div>
                 </div>
@@ -490,7 +561,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].time"
+                      v-model="addtable.workShift"
                     />
                   </div>
                 </div>
@@ -501,7 +572,7 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].jig"
+                      v-model="addtable.jig"
                     />
                   </div>
                 </div>
@@ -510,9 +581,9 @@
                   <div class="textworkcode">
                     <input
                       type="text"
-                      placeholder=""
+                      placeholder="รอบ"
                       class="placeholder"
-                      v-model="newdetails[0].Chub"
+                      v-model="addtable.chub"
                     />
                   </div>
                 </div>
@@ -523,16 +594,63 @@
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="newdetails[0].productionorder"
+                      v-model="addtable.productOrder"
                     />
                   </div>
                 </div>
               </div>
+              <div class="productpage">
+                <div class="productpagetext">วันกำหนดผลิต</div>
+                <form action="/action_page.php">
+                  <input
+                    type="date"
+                    id="selectdate"
+                    name="selectdate"
+                    v-model="addtable.createdAt"
+                  />
+                  <!-- <input type="submit"> -->
+                </form>
+              </div>
             </div>
             <div class="singlebutton">
               <button class="save" @click="save">CLOSE</button>
-              <button class="savebutton" @click="saveRecord">SAVE</button>
+              <button class="savebutton" @click="checkMessages">SAVE</button>
             </div>
+          </div>
+        </div>
+
+        <div id="modaldeletepopup" v-if="deletepopup">
+          <div class="containerdeletepopup">
+            <div class="headderdeletepopup">
+              <div class="backdeletepopup" @click="mainmenu">
+                <font-awesome-icon
+                  icon="fa-solid fa-xmark"
+                  style="font-size: 25px"
+                />
+              </div>
+
+              <div class="circledelete">
+                <div class="icondelete">
+                  <font-awesome-icon
+                    icon="fa-regular fa-trash-can"
+                    style="color: #45bfa2"
+                  />
+                </div>
+              </div>
+              <div class="textdeletepopup">Delete?</div>
+              <div class="textdeletepopuptwo">ยืนยันในการลบข้อมูลทั้งหมด</div>
+              <div class="singledeletebutton">
+                <button class="save" @click="deleteing">Yes</button>
+                <button class="savebutton" @click="nosavedelete">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="alert" v-if="alert">
+          <div class="alertnaja">
+            <p>*กรุณากรอกให้ครบทุกช่อง</p>
+            <button class="save" @click="hideAlert">Close</button>
           </div>
         </div>
 
@@ -559,12 +677,12 @@
               />
               <div class="fontbutton" @click="addclick">ADD</div>
             </button>
-            <div class="headinputdate">
+            <!-- <div class="headinputdate">
               <form action="/action_page.php">
                 <input type="date" id="selectdate" name="selectdate" />
-                <!-- <input type="submit"> -->
+                <input type="submit">
               </form>
-            </div>
+            </div> -->
             <!-- <button class="headtabledate" @click="opendateinput">
               <font-awesome-icon
                 icon="fa-regular fa-calendar-days"
@@ -586,20 +704,15 @@
                 <td></td>
                 <td></td>
               </tr>
-              <tr v-for="(equipment, index) in tableData" :key="index">
-                <td>{{ equipment.datereceipt }}</td>
-                <td>{{ equipment.workpiececode }}</td>
-                <td>{{ equipment.reference }}</td>
-                <td>{{ equipment.customer }}</td>
+              <tr v-for="(tableplan, index) in plan()" :key="index">
+                <td>{{ tableplan.dateReceipt.split("T")[0] }}</td>
+                <td>{{ tableplan.workCode }}</td>
+                <td>{{ tableplan.referenceId }}</td>
+                <td>{{ tableplan.customer }}</td>
+                <td>{{ tableplan.createdAt.split("T")[0] }}</td>
+                <td>{{ tableplan.deadline.split("T")[0] }}</td>
                 <td>
-                  <form action="/action_page.php">
-                    <input type="date" id="selectdate" name="selectdate" />
-                    <!-- <input type="submit"> -->
-                  </form>
-                </td>
-                <td>{{ equipment.deadline }}</td>
-                <td>
-                  <div class="IconPopup" @click="openEditModal">
+                  <div class="IconPopup" @click="openEditModal(tableplan)">
                     <font-awesome-icon
                       icon="fa-regular fa-pen-to-square"
                       style="font-size: 20px"
@@ -608,14 +721,20 @@
                   </div>
                 </td>
                 <td>
-                  <font-awesome-icon
-                    icon="fa-regular fa-trash-can"
-                    style="font-size: 20px"
-                    class="icon"
-                  />
+                  <div
+                    class="actiondelete"
+                    @click="opendeletemodal(tableplan._id)"
+                  >
+                    <font-awesome-icon
+                      icon="fa-regular fa-trash-can"
+                      style="font-size: 20px"
+                      class="icon"
+                    />
+                  </div>
                 </td>
+
                 <td>
-                  <div class="IconPopup" @click="openModal">
+                  <div class="IconPopup" @click="openModal(tableplan)">
                     <font-awesome-icon
                       icon="fa-regular fa-eye"
                       style="font-size: 20px"
@@ -644,6 +763,7 @@
 <script>
 import TableComponent from "../components/TableComponent.vue";
 import PopUp from "../components/PopUp.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   component: {
@@ -658,49 +778,34 @@ export default {
       editmodal: false,
       input: false,
       addmodal: false,
+      deletepopup: false,
+      alert: false,
+      id: "",
+      edittable: {},
+      clear: [],
 
-      tableData: [
-        {
-          id: 1,
-          datereceipt: "31/8/65",
-          workpiececode: "472/2022",
-          reference: "D4-191894 ",
-          customer: "CKD",
-          deadline: "14/10/65",
-        },
-        {
-          id: 2,
-          datereceipt: "25/3/65",
-          workpiececode: "11477 GPV",
-          reference: "1520038304",
-          customer: "GPV",
-          deadline: "14/10/65",
-        },
-        {
-          id: 3,
-          datereceipt: "12/9/65",
-          workpiececode: "2209001",
-          reference: "1 IA2AAL-0004-00",
-          customer: "KYOWA",
-          deadline: "14/9/65",
-        },
-        {
-          id: 4,
-          datereceipt: "31/8/65",
-          workpiececode: "472/2022",
-          reference: "D4-191894",
-          customer: "CKD",
-          deadline: "14/9/65",
-        },
-        {
-          id: 5,
-          datereceipt: "25/3/65",
-          workpiececode: "11477 GPV",
-          reference: "1520038304",
-          customer: "GPV",
-          deadline: "14/9/65",
-        },
-      ],
+      addtable: {
+        workCode: "",
+        referenceId: "",
+        dateReceipt: "",
+        customer: "",
+        deadline: "",
+        condition: "",
+        mat: "",
+        platingType: "",
+        otherPro: "",
+        price: "",
+        amountBill: "",
+        balance: "",
+        invenUpdate: "",
+        workShift: "",
+        jig: "",
+        chub: "",
+        productOrder: "",
+        createdAt: "",
+        updatedAt: "",
+      },
+
       editData: [
         {
           id: 1,
@@ -796,11 +901,32 @@ export default {
       ],
     };
   },
+
+  created() {
+    this.fetchPlan();
+  },
+  computed: {
+    plan() {
+      console.log(this.getPlan);
+      return this.getPlan;
+    },
+    isMessageMissing() {
+      return (key) => {
+        return !this.addtable[key];
+      };
+    },
+  },
   methods: {
+    ...mapActions(["fetchPlan"]),
+    ...mapGetters(["getPlan"]),
+    ...mapActions(["addMenuPlan"]),
+    ...mapActions(["deletePlan"]),
+    ...mapActions(["editPlan"]),
     mainmenu() {
       this.$router.push("/mainmenu");
     },
-    openModal() {
+    openModal(tableplan) {
+      this.edittable = tableplan;
       this.modal = true;
       this.backdrop = true;
     },
@@ -809,18 +935,39 @@ export default {
       this.editmodal = false;
       this.backdrop = false;
       this.addmodal = false;
+      this.deletepopup = false;
+      this.alert = false;
     },
     save() {
       this.editdetails[0].condition = this.details[0].condition;
       this.closeModal();
     },
-    openEditModal() {
+    splitText(data) {
+      var date = data.split("T");
+      return date[0];
+    },
+    openEditModal(tableplan) {
+      this.edittable = tableplan;
+      // console.log(tableplan);
+      // console.log(this.edittable);
       this.editmodal = true;
       this.backdrop = true;
+      this.edittable.dateReceipt = this.splitText(this.edittable.dateReceipt);
+      this.edittable.deadline = this.splitText(this.edittable.deadline);
+    },
+    addrecord() {
+      this.closeModal();
+      this.addMenuPlan(this.addtable);
+      this.addtable = this.clear;
+    },
+    deleteing() {
+      this.deletePlan(this.id);
+      this.closeModal();
     },
     saveRecord() {
       // this.details[0].condition = this.editdetails[0].condition;
       this.closeModal();
+      this.editPlan(this.edittable);
     },
     opendateinput() {
       this.dateinput = true;
@@ -828,6 +975,45 @@ export default {
     addclick() {
       this.addmodal = true;
       this.backdrop = true;
+    },
+    opendeletemodal(id) {
+      this.id = id;
+      this.deletepopup = true;
+      this.backdrop = true;
+    },
+    nosavedelete() {
+      this.closeModal();
+    },
+    checkMessages() {
+      if (
+        this.addtable.amountBill &&
+        this.addtable.balance &&
+        this.addtable.mat &&
+        this.addtable.otherPro &&
+        this.addtable.platingType &&
+        this.addtable.price &&
+        this.addtable.productOrder &&
+        this.addtable.referenceId &&
+        this.addtable.workCode &&
+        this.addtable.workShift &&
+        this.addtable.chub &&
+        this.addtable.condition &&
+        this.addtable.customer &&
+        this.addtable.dateReceipt &&
+        this.addtable.invenUpdate &&
+        this.addtable.deadline &&
+        this.addtable.jig &&
+        this.addtable.createdAt
+      ) {
+        this.addrecord();
+        // Perform your desired actions when all messages are present
+      } else {
+        this.alert = true;
+        // Perform your desired actions when one or more messages are missing
+      }
+    },
+     hideAlert() {
+      this.alert = false;
     },
   },
 };
@@ -1108,10 +1294,86 @@ td {
   z-index: 99;
   opacity: 1;
 }
-.headinputdate{
+.headinputdate {
   margin-left: 20px;
   align-items: center;
   justify-content: center;
   margin-top: 6px;
 }
+.productpage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 15px;
+}
+.productpagetext {
+  font-size: 15px;
+}
+#modaldeletepopup {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  margin: auto;
+  z-index: 99;
+}
+.containerdeletepopup {
+  width: 30vw;
+  height: 40vh;
+  background-color: white;
+  border-radius: 20px;
+  margin: auto;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 2px;
+}
+.headderdeletepopup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.backdeletepopup {
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  cursor: pointer;
+}
+.icondelete {
+  font-size: 45px;
+}
+.circledelete {
+  height: 90px;
+  width: 90px;
+  background-color: #b5f0e2;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.textdeletepopup {
+  font-size: 30px;
+  margin-top: 10px;
+}
+.singledeletebutton {
+  display: flex;
+  margin-top: 30px;
+}
+.textalert {
+  font-size: 16px;
+  color: red;
+}
+#alert {
+  position: absolute;
+  left: 45%;
+  margin: auto;
+  z-index: 99;
+}
+.alertnaja {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 </style>

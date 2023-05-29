@@ -175,105 +175,105 @@
             <div class="twoheadderpopup">
               <div class="row">
                 <div class="edittwotext1">
-                  <div class="workcode">คอนดิชั่น</div>
+                  <div class="workcode">จำนวนส่ง 1</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="editdetails[0].condition"
+                      v-model="editdetails[0].amountbill"
                     />
                   </div>
                 </div>
                 <div class="edittwotext2">
-                  <div class="workcode">mat</div>
+                  <div class="workcode">วันที่ส่ง</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].mat"
+                      v-model="editData[0].deadline"
                     />
                   </div>
                 </div>
                 <div class="edittwotext3">
-                  <div class="workcode">ประเภทการชุบ</div>
+                  <div class="workcode">เลขส่งของ</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].platingtype"
+                       v-model="details[0].deliverynumber"
                     />
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="edittwotext1">
-                  <div class="workcode">กระบวนการอื่นๆ</div>
+                  <div class="workcode">จำนวนส่ง 2</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].otherprocesses"
+                      v-model="editdetails[1].amountbill"
                     />
                   </div>
                 </div>
                 <div class="edittwotext2">
-                  <div class="workcode">ราคา(บาท)</div>
+                  <div class="workcode">วันที่ส่ง</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].price"
+                      v-model="editData[3].deadline"
                     />
                   </div>
                 </div>
                 <div class="edittwotext3">
-                  <div class="workcode">จำนวนตามบิล</div>
+                  <div class="workcode">เลขส่งของ</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].amountbill"
+                       v-model="details[0].deliverynumber"
                     />
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="edittwotext1">
-                  <div class="workcode">ยอดคงเหลือ</div>
+                  <div class="workcode">จำนวนส่ง 3</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].balance"
+                      v-model="editdetails[0].amountbill"
                     />
                   </div>
                 </div>
                 <div class="edittwotext2">
-                  <div class="workcode">หัก stock</div>
+                  <div class="workcode">วันที่ส่ง</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].stock"
+                      v-model="editData[2].deadline"
                     />
                   </div>
                 </div>
                 <div class="edittwotext3">
-                  <div class="workcode">กะผลิต</div>
+                  <div class="workcode">เลขส่งของ</div>
                   <div class="textworkcode">
                     <input
                       type="text"
                       placeholder=""
                       class="placeholder"
-                      v-model="details[0].time"
+                      v-model="details[0].deliverynumber"
                     />
                   </div>
                 </div>
@@ -450,20 +450,26 @@
         </div>
         <div class="headtableContainer">
           <div class="headbutton">
-            <button class="headtableadd">
+            <!-- <button class="headtableadd">
               <font-awesome-icon
                 icon="fa-regular fa-square-plus"
                 style="font-size: 25px"
               />
               <div class="fontbutton" @click="addclick">ADD</div>
-            </button>
-            <button class="headtabledate" @click="opendateinput">
+            </button> -->
+            <div class="inputdateheadder">
+              <form action="/action_page.php">
+                <input type="date" id="selectdate" name="selectdate" />
+                <!-- <input type="submit"> -->
+              </form>
+            </div>
+            <!-- <button class="headtabledate" @click="opendateinput">
               <font-awesome-icon
                 icon="fa-regular fa-calendar-days"
                 style="font-size: 25px"
               />
               <div class="fontbutton">DATE</div>
-            </button>
+            </button> -->
           </div>
           <div class="tableContainer">
             <table style="width: 100%" class="bodertable">
@@ -472,7 +478,7 @@
                 <td>รหัสชิ้นงาน</td>
                 <td>เลขที่อ้างอิง</td>
                 <td>ลูกค้า</td>
-                <td>วันที่ลูกค้าเลือก</td>
+                <td>วันกำหนดส่ง</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -483,10 +489,7 @@
                 <td>{{ equipment.reference }}</td>
                 <td>{{ equipment.customer }}</td>
                 <td>
-                  <form action="/action_page.php">
-                    <input type="date" id="selectdate" name="selectdate" />
-                    <!-- <input type="submit"> -->
-                  </form>
+                  {{ equipment.deadline }}
                 </td>
                 <td>
                   <div class="IconPopup" @click="openEditModal">
@@ -498,11 +501,6 @@
                   </div>
                 </td>
                 <td>
-                  <font-awesome-icon
-                    icon="fa-regular fa-trash-can"
-                    style="font-size: 20px"
-                    class="icon"
-                  />
                 </td>
                 <td>
                   <div class="IconPopup" @click="openModal">
@@ -612,7 +610,7 @@ export default {
           workpiececode: "202.49.251.62",
           reference: "Bang rak",
           customer: "THIX-01",
-          deadline: "14/9/65",
+          deadline: "5/9/65",
         },
         {
           id: 4,
@@ -620,7 +618,7 @@ export default {
           workpiececode: "202.49.251.62",
           reference: "Bang rak",
           customer: "THIX-01",
-          deadline: "14/9/65",
+          deadline: "20/10/65",
         },
         {
           id: 5,
@@ -643,6 +641,8 @@ export default {
           balance: "250",
           stock: "200",
           time: "50",
+          deliverynumber : "AL0598",
+
         },
       ],
       editdetails: [
@@ -654,6 +654,20 @@ export default {
           otherprocesses: "พ้นทราย#6",
           price: "30",
           amountbill: "18",
+          balance: "18",
+          stock: "-18",
+          time: "เช้า",
+          jig: "30",
+          Chub: "1",
+          productionorder: "ธนธัช",
+        },
+        {          id: 2,
+          condition: "C22",
+          mat: "AL5052",
+          platingtype: "อโนไดซ์สีขาวเงา",
+          otherprocesses: "พ้นทราย#6",
+          price: "30",
+          amountbill: "40",
           balance: "18",
           stock: "-18",
           time: "เช้า",
@@ -856,6 +870,7 @@ td {
   /* justify-content: space-evenly; */
   /* align-items: center; */
 }
+
 #modalpopup {
   position: absolute;
   top: 10%;
@@ -985,15 +1000,24 @@ td {
   width: 80px;
   height: 30px;
 }
-.edittwotext1{
-    margin-left: 10px;
-  margin-bottom: 40px
+.edittwotext1 {
+  margin-left: 10px;
+  margin-bottom: 40px;
 }
-.edittwotext2{
-    margin-left: 70px;
+.edittwotext2 {
+  margin-left: 70px;
 }
-.edittwotext3{
-    margin-left: 70px;
+.edittwotext3 {
+  margin-left: 70px;
+}
+.inputdateheadder{
+  margin-left: 70px;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5px;
+  
 
 }
 </style>
+
